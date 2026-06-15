@@ -1,11 +1,13 @@
 <script setup>
 import { ref, onMounted, onUnmounted } from 'vue'
 import { useMousePosition } from '@/composables/useMousePosition'
+import { useReducedMotion } from '@/composables/useReducedMotion'
 import { useLenis } from '@/composables/useLenis'
 import MagneticButton from '@/components/UI/MagneticButton.vue'
 import ScrollIndicator from '@/components/UI/ScrollIndicator.vue'
 
 const { x, y } = useMousePosition()
+const { prefersReducedMotion } = useReducedMotion()
 const { scrollTo } = useLenis()
 const isVisible = ref(false)
 
@@ -21,6 +23,7 @@ const targetTilt = { x: 0, y: 0 }
 const currentTilt = { x: 0, y: 0 }
 
 let rafId = null
+let hasMouseMoved = false
 
 function lerp(start, end, factor) {
   return start + (end - start) * factor
@@ -29,8 +32,8 @@ function lerp(start, end, factor) {
 function animate() {
   const centerX = window.innerWidth / 2
   const centerY = window.innerHeight / 2
-  const nx = (x.value - centerX) / centerX
-  const ny = (y.value - centerY) / centerY
+  const nx = hasMouseMoved ? (x.value - centerX) / centerX : 0
+  const ny = hasMouseMoved ? (y.value - centerY) / centerY : 0
 
   // Update targets
   targetOrb.x1 = 50 + (nx * 15)
@@ -63,9 +66,16 @@ function animate() {
   rafId = requestAnimationFrame(animate)
 }
 
+function handleFirstMouse() {
+  hasMouseMoved = true
+}
+
 onMounted(() => {
   isVisible.value = true
-  rafId = requestAnimationFrame(animate)
+  if (!prefersReducedMotion.value) {
+    rafId = requestAnimationFrame(animate)
+    window.addEventListener('mousemove', handleFirstMouse, { once: true })
+  }
 })
 
 onUnmounted(() => {
@@ -85,7 +95,7 @@ const socials = [
     class="relative min-h-screen flex items-center justify-center overflow-hidden"
   >
     <!-- Gradient Orbs (smoothed with lerp) -->
-    <div class="absolute inset-0 overflow-hidden pointer-events-none">
+    <div class="absolute inset-0 overflow-hidden pointer-events-none" aria-hidden="true">
       <div
         class="gradient-orb gradient-orb--blue w-[600px] h-[600px] animate-glow"
         :style="{
@@ -123,7 +133,7 @@ const socials = [
       }"
     >
       <div
-        :style="{
+        :style="prefersReducedMotion ? {} : {
           transform: `rotateX(${tiltX}deg) rotateY(${tiltY}deg)`,
         }"
       >
@@ -133,7 +143,7 @@ const socials = [
           :class="isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'"
           style="transition-delay: 200ms"
         >
-          <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
+          <span class="w-2 h-2 rounded-full bg-emerald-400" :class="{ 'animate-pulse': !prefersReducedMotion }" />
           Data Analyst &amp; BI Analyst
         </div>
 
@@ -181,7 +191,7 @@ const socials = [
             variant="primary"
             @click="scrollTo('#projects')"
           >
-            <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
               <path d="M22 12h-4l-3 9L9 3l-3 9H2" />
             </svg>
             View Projects
@@ -194,7 +204,7 @@ const socials = [
           </MagneticButton>
         </div>
 
-        <!-- Social Links with staggered float -->
+        <!-- Social Links -->
         <div
           class="flex items-center justify-center gap-6 mt-12 transition-all duration-700"
           :class="isVisible ? 'opacity-100' : 'opacity-0'"
@@ -206,8 +216,8 @@ const socials = [
             :href="social.url"
             target="_blank"
             rel="noopener noreferrer"
-            class="text-white/30 hover:text-white/80 transition-all duration-300 hover:scale-110"
-            :style="{
+            class="text-white/30 hover:text-white/80 transition-all duration-300 hover:scale-110 focus-visible:outline-2 focus-visible:outline-accent-400"
+            :style="prefersReducedMotion ? {} : {
               animation: `float 6s ease-in-out ${i * 0.6}s infinite`,
             }"
           >
@@ -215,6 +225,7 @@ const socials = [
               class="w-5 h-5"
               viewBox="0 0 24 24"
               fill="currentColor"
+              aria-hidden="true"
             >
               <path :d="social.icon" />
             </svg>

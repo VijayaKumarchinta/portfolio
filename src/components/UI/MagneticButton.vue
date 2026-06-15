@@ -4,7 +4,7 @@ import { ref } from 'vue'
 const props = defineProps({
   href: { type: String, default: null },
   target: { type: String, default: '_blank' },
-  class: { type: String, default: '' },
+  wrapperClass: { type: String, default: '' },
   variant: { type: String, default: 'primary' }, // primary | secondary | ghost
 })
 
@@ -39,7 +39,7 @@ function handleLeave() {
       variant === 'primary' && 'bg-white text-dark-950 hover:bg-white/90 shadow-lg shadow-white/10',
       variant === 'secondary' && 'glass-strong text-white hover:bg-white/10',
       variant === 'ghost' && 'text-white/60 hover:text-white hover:bg-white/5',
-      props.class,
+      wrapperClass,
     ]"
     :style="{
       transform: `translate(${offsetX}px, ${offsetY}px)`,

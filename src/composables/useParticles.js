@@ -4,7 +4,10 @@ export function useParticles() {
   const containerRef = ref(null)
   let scene, camera, renderer, particles
   let mouse = { x: 0, y: 0 }
+  let mouseTarget = { x: 0, y: 0 }
   let animationId = null
+  let mounted = false
+  let time = 0
 
   function handleMouse(e) {
     mouse.x = (e.clientX / window.innerWidth) * 2 - 1
@@ -12,10 +15,17 @@ export function useParticles() {
   }
 
   async function init() {
-    if (!containerRef.value) return
+    if (!containerRef.value || !mounted) return
 
-    // Dynamic import — Three.js is code-split into its own chunk
     const THREE = await import('three')
+
+    // Skip particle system on touch devices for performance
+    const isTouchDevice = 'ontouchstart' in window || navigator.maxTouchPoints > 0
+    if (isTouchDevice) return
+
+    // Also skip if reduced motion is preferred
+    const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches
+    if (reducedMotion) return
 
     const container = containerRef.value
     const width = container.clientWidth
@@ -34,16 +44,18 @@ export function useParticles() {
     renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2))
     container.appendChild(renderer.domElement)
 
-    const count = 2000
+    // Adaptive particle count based on device capability
+    const count = window.innerWidth < 768 ? 600 : 2000
+    if (count === 0) return
+
     const positions = new Float32Array(count * 3)
     const colors = new Float32Array(count * 3)
-    const sizes = new Float32Array(count)
 
     const colorPalette = [
-      new THREE.Color(0x60a5fa), // blue
-      new THREE.Color(0xa78bfa), // purple
-      new THREE.Color(0xf472b6), // pink
-      new THREE.Color(0x818cf8), // indigo
+      new THREE.Color(0x60a5fa),
+      new THREE.Color(0xa78bfa),
+      new THREE.Color(0xf472b6),
+      new THREE.Color(0x818cf8),
     ]
 
     for (let i = 0; i < count; i++) {
@@ -55,14 +67,11 @@ export function useParticles() {
       colors[i * 3] = color.r
       colors[i * 3 + 1] = color.g
       colors[i * 3 + 2] = color.b
-
-      sizes[i] = Math.random() * 3 + 0.5
     }
 
     const geometry = new THREE.BufferGeometry()
     geometry.setAttribute('position', new THREE.BufferAttribute(positions, 3))
     geometry.setAttribute('color', new THREE.BufferAttribute(colors, 3))
-    geometry.setAttribute('size', new THREE.BufferAttribute(sizes, 1))
 
     const material = new THREE.PointsMaterial({
       size: 0.15,
@@ -82,15 +91,17 @@ export function useParticles() {
   }
 
   function animate() {
-    if (!particles) return
+    if (!particles || !mounted) return
 
-    // Slow rotation
-    particles.rotation.x += 0.0003
-    particles.rotation.y += 0.0005
+    time += 1
 
-    // Mouse-based tilt
-    particles.rotation.x += mouse.y * 0.002
-    particles.rotation.y += mouse.x * 0.002
+    // Smooth mouse rotation towards target
+    mouseTarget.x += (mouse.y * 0.5 - mouseTarget.x) * 0.05
+    mouseTarget.y += (mouse.x * 0.5 - mouseTarget.y) * 0.05
+
+    // Base rotation grows with time; mouse adds subtle offset
+    particles.rotation.x = time * 0.0003 + mouseTarget.x * 0.004
+    particles.rotation.y = time * 0.0005 + mouseTarget.y * 0.004
 
     renderer.render(scene, camera)
     animationId = requestAnimationFrame(animate)
@@ -106,18 +117,27 @@ export function useParticles() {
   }
 
   onMounted(() => {
+    mounted = true
     init()
     window.addEventListener('resize', handleResize)
   })
 
   onUnmounted(() => {
+    mounted = false
     window.removeEventListener('mousemove', handleMouse)
     window.removeEventListener('resize', handleResize)
     if (animationId) cancelAnimationFrame(animationId)
+
+    // Properly dispose Three.js resources
+    if (particles) {
+      particles.geometry?.dispose()
+      particles.material?.dispose()
+      scene?.remove(particles)
+    }
     if (renderer && containerRef.value) {
       containerRef.value.removeChild(renderer.domElement)
+      renderer.dispose()
     }
-    renderer?.dispose()
   })
 
   return { containerRef }

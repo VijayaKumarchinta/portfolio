@@ -1,36 +1,22 @@
 <script setup>
-import { ref, onMounted } from 'vue'
+import { useInView } from '@/composables/useInView'
 
 const props = defineProps({
   text: { type: String, required: true },
   mode: { type: String, default: 'word' }, // word | char
   delay: { type: Number, default: 0 },
-  class: { type: String, default: '' },
+  wrapperClass: { type: String, default: '' },
   as: { type: String, default: 'span' },
 })
 
-const elRef = ref(null)
-const isVisible = ref(false)
-
-onMounted(() => {
-  const observer = new IntersectionObserver(
-    ([entry]) => {
-      if (entry.isIntersecting) {
-        isVisible.value = true
-        observer.unobserve(entry.target)
-      }
-    },
-    { threshold: 0.1 }
-  )
-  if (elRef.value) observer.observe(elRef.value)
-})
+const { elRef, isVisible } = useInView()
 
 const words = props.text.split(' ')
 const chars = props.text.split('')
 </script>
 
 <template>
-  <component :is="as" ref="elRef" :class="['inline', props.class]">
+  <component :is="as" ref="elRef" :class="['inline', wrapperClass]">
     <template v-if="mode === 'word'">
       <span
         v-for="(word, i) in words"
@@ -43,7 +29,7 @@ const chars = props.text.split('')
           :style="{
             transitionDelay: `${delay + i * 40}ms`,
           }"
-        >{{ word }}&nbsp;</span>
+        >{{ word }}\u00A0</span>
       </span>
     </template>
     <template v-else>
@@ -58,7 +44,7 @@ const chars = props.text.split('')
           :style="{
             transitionDelay: `${delay + i * 20}ms`,
           }"
-        >{{ char === ' ' ? '&nbsp;' : char }}</span>
+        >{{ char === ' ' ? '\u00A0' : char }}</span>
       </span>
     </template>
   </component>

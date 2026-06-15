@@ -1,10 +1,11 @@
 <script setup>
-import { ref, onMounted, onUnmounted } from 'vue'
+import { ref, onMounted, onUnmounted, nextTick } from 'vue'
 import { useLenis } from '@/composables/useLenis'
 
 const { scrollTo } = useLenis()
 const menuOpen = ref(false)
 const scrolled = ref(false)
+const menuId = 'mobile-menu'
 
 const navItems = [
   { label: 'About', href: '#about' },
@@ -28,6 +29,10 @@ function handleEscape(e) {
   if (e.key === 'Escape') menuOpen.value = false
 }
 
+function scrollToTop() {
+  scrollTo(0)
+}
+
 onMounted(() => {
   window.addEventListener('scroll', handleScroll, { passive: true })
   window.addEventListener('keydown', handleEscape)
@@ -49,8 +54,8 @@ onUnmounted(() => {
     <nav class="section-container flex items-center justify-between h-16 md:h-20">
       <!-- Logo -->
       <button
-        class="text-lg font-semibold tracking-tight cursor-pointer"
-        @click="scrollTo('#top')"
+        class="text-lg font-semibold tracking-tight cursor-pointer focus-visible:outline-2 focus-visible:outline-accent-400"
+        @click="scrollToTop"
       >
         <span class="gradient-text">VK</span>
         <span class="text-white/40 ml-2 font-mono text-xs">.dev</span>
@@ -60,7 +65,7 @@ onUnmounted(() => {
       <ul class="hidden md:flex items-center gap-1">
         <li v-for="item in navItems" :key="item.label">
           <button
-            class="px-4 py-2 text-sm text-white/50 hover:text-white rounded-lg hover:bg-white/5 transition-all duration-200 cursor-pointer"
+            class="px-4 py-2 text-sm text-white/50 hover:text-white rounded-lg hover:bg-white/5 transition-all duration-200 cursor-pointer focus-visible:outline-2 focus-visible:outline-accent-400 focus-visible:outline-offset-2"
             @click="handleNavClick(item.href)"
           >
             {{ item.label }}
@@ -70,11 +75,12 @@ onUnmounted(() => {
 
       <!-- Hamburger -->
       <button
-        class="md:hidden relative w-8 h-8 flex items-center justify-center cursor-pointer z-50"
+        class="md:hidden relative w-8 h-8 flex items-center justify-center cursor-pointer z-50 focus-visible:outline-2 focus-visible:outline-accent-400"
         @click="menuOpen = !menuOpen"
-        aria-label="Toggle menu"
+        :aria-label="menuOpen ? 'Close menu' : 'Open menu'"
+        :aria-expanded="menuOpen"
+        :aria-controls="menuId"
       >
-        <span class="sr-only">Menu</span>
         <span
           class="absolute block h-[2px] w-5 bg-white transition-all duration-300"
           :class="menuOpen ? 'rotate-45' : '-translate-y-1.5'"
@@ -93,8 +99,12 @@ onUnmounted(() => {
     <!-- Mobile menu overlay -->
     <Teleport to="body">
       <div
+        :id="menuId"
         class="fixed inset-0 z-40 md:hidden"
         :class="menuOpen ? 'pointer-events-auto' : 'pointer-events-none'"
+        role="dialog"
+        aria-modal="true"
+        :aria-label="menuOpen ? 'Navigation menu' : undefined"
       >
         <!-- Backdrop -->
         <div
@@ -111,7 +121,7 @@ onUnmounted(() => {
             <button
               v-for="item in navItems"
               :key="item.label"
-              class="w-full text-left px-4 py-3 text-white/60 hover:text-white hover:bg-white/5 rounded-xl transition-all duration-200 text-lg font-medium"
+              class="w-full text-left px-4 py-3 text-white/60 hover:text-white hover:bg-white/5 rounded-xl transition-all duration-200 text-lg font-medium focus-visible:outline-2 focus-visible:outline-accent-400 focus-visible:outline-offset-2"
               @click="handleNavClick(item.href)"
             >
               {{ item.label }}

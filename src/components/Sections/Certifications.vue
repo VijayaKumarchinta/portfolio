@@ -54,7 +54,7 @@ const certifications = [
         <GlassCard
           v-for="(cert, i) in certifications"
           :key="i"
-          class="text-center"
+          wrapper-class="text-center"
           :glow-color="cert.color"
           :style="{ transitionDelay: `${i * 150}ms` }"
         >

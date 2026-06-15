@@ -1,39 +1,21 @@
 <script setup>
-import { ref, onMounted } from 'vue'
+import { ref } from 'vue'
+import { useInView } from '@/composables/useInView'
 
 const props = defineProps({
-  class: { type: String, default: '' },
+  wrapperClass: { type: String, default: '' },
   glowColor: { type: String, default: 'rgba(96, 165, 250, 0.15)' },
 })
 
-const emit = defineEmits(['spotlight'])
-
-const cardRef = ref(null)
-const spotlight = ref({ x: 50, y: 50 })
-const isVisible = ref(false)
+const { elRef: cardRef, isVisible } = useInView()
 const isHovered = ref(false)
 
 function handleMouse(e) {
   if (!cardRef.value) return
   const rect = cardRef.value.getBoundingClientRect()
-  spotlight.value = {
-    x: ((e.clientX - rect.left) / rect.width) * 100,
-    y: ((e.clientY - rect.top) / rect.height) * 100,
-  }
+  cardRef.value.style.setProperty('--spotlight-x', `${((e.clientX - rect.left) / rect.width) * 100}%`)
+  cardRef.value.style.setProperty('--spotlight-y', `${((e.clientY - rect.top) / rect.height) * 100}%`)
 }
-
-onMounted(() => {
-  const observer = new IntersectionObserver(
-    ([entry]) => {
-      if (entry.isIntersecting) {
-        isVisible.value = true
-        observer.unobserve(entry.target)
-      }
-    },
-    { threshold: 0.1 }
-  )
-  if (cardRef.value) observer.observe(cardRef.value)
-})
 </script>
 
 <template>
@@ -43,7 +25,7 @@ onMounted(() => {
       'glass rounded-2xl p-6 md:p-8 relative overflow-hidden transition-all duration-500',
       isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8',
       isHovered ? 'scale-[1.02]' : 'scale-100',
-      props.class,
+      wrapperClass,
     ]"
     @mouseenter="isHovered = true"
     @mouseleave="isHovered = false"
@@ -54,7 +36,7 @@ onMounted(() => {
       class="absolute inset-0 pointer-events-none opacity-0 transition-opacity duration-300"
       :class="{ 'opacity-100': isHovered }"
       :style="{
-        background: `radial-gradient(600px circle at ${spotlight.x}% ${spotlight.y}%, ${glowColor}, transparent 60%)`,
+        background: `radial-gradient(600px circle at var(--spotlight-x, 50%) var(--spotlight-y, 50%), ${glowColor}, transparent 60%)`,
       }"
     />
     <!-- Border glow -->

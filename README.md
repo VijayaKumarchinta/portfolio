@@ -2,7 +2,7 @@
 
 A modern, dynamic portfolio website built with **Vue 3** and **Vite**, showcasing skills, projects, and experience in data analytics and software development.
 
-**Live site:** [https://portfolio.pages.dev](https://portfolio.pages.dev) <!-- Update URL after Cloudflare deployment -->
+**Live site:** [https://portfolio.pages.dev](https://portfolio.pages.dev)
 
 ## Features
 
@@ -10,7 +10,7 @@ A modern, dynamic portfolio website built with **Vue 3** and **Vite**, showcasin
 - **Interactive Elements** — Magnetic buttons, scroll-triggered text reveals, and real-time mouse-tracking effects
 - **Smooth Scrolling** — Powered by Lenis for fluid, performant scrolling
 - **Responsive Design** — Optimized for desktop, tablet, and mobile
-- **SPA Ready** — Client-side routing handled via `_redirects` (Netlify / Cloudflare Pages)
+- **Reduced Motion Support** — Respects `prefers-reduced-motion` OS setting
 
 ## Sections
 
@@ -30,9 +30,8 @@ A modern, dynamic portfolio website built with **Vue 3** and **Vite**, showcasin
 | **Framework** | [Vue 3](https://vuejs.org/) (Composition API + `<script setup>`) |
 | **Build Tool** | [Vite](https://vitejs.dev/) v8 |
 | **Styling** | [Tailwind CSS](https://tailwindcss.com/) v4 with custom CSS properties and glassmorphism utilities |
-| **Animation** | [@vueuse/motion](https://motion.vueuse.org/) for scroll-triggered reveals, [Lenis](https://lenis.darkroom.engineering/) for smooth scrolling |
+| **Smooth Scroll** | [Lenis](https://lenis.darkroom.engineering/) |
 | **3D / Visuals** | [Three.js](https://threejs.org/) for particle field background |
-| **Utilities** | [@vueuse/core](https://vueuse.org/) — mouse position tracking, composables |
 | **Icons** | Custom SVG icons (no icon library dependency) |
 | **Fonts** | Cabinet Grotesk (display) + JetBrains Mono (code) via Google Fonts / Fontshare |
 
@@ -40,7 +39,7 @@ A modern, dynamic portfolio website built with **Vue 3** and **Vite**, showcasin
 
 ### Prerequisites
 
-- [Node.js](https://nodejs.org/) v18 or higher (v22+ recommended)
+- [Node.js](https://nodejs.org/) v20.19 or higher (v22+ recommended)
 - npm, pnpm, or yarn
 
 ### Installation
@@ -82,7 +81,6 @@ src/
 ├── App.vue                          # Root component
 ├── main.js                          # App entry point
 ├── style.css                        # Global styles + Tailwind imports
-├── assets/                          # Static images (hero.png, svg icons)
 ├── components/
 │   ├── Canvas/
 │   │   └── ParticleField.vue        # Three.js animated particle background
@@ -103,6 +101,7 @@ src/
 │       └── ScrollIndicator.vue      # Scroll-down indicator
 └── composables/
     ├── useLenis.js                  # Lenis smooth scroll integration
+    ├── useReducedMotion.js          # prefers-reduced-motion detection
     ├── useMousePosition.js          # Real-time mouse tracking
     └── useParticles.js              # Three.js particle system logic
 ```
@@ -120,7 +119,6 @@ SPA routing is handled automatically via `public/_redirects` (supported natively
 4. Select your repository and configure:
    - **Build command:** `npm run build`
    - **Build output directory:** `dist`
-   - **Deploy command:** `npx wrangler pages deploy dist`
 5. Click **Save and Deploy**.
 
 **Via CLI:**
@@ -140,41 +138,6 @@ Pre-configured for Netlify with SPA routing via `public/_redirects`.
    - **Build command:** `npm run build`
    - **Publish directory:** `dist`
 5. Click **Deploy site**.
-
-CLI alternative:
-```bash
-npx netlify-cli deploy --prod --dir=dist
-```
-
-### Deploy to Vercel
-
-1. Push your code to a Git repository.
-2. Log in to [Vercel](https://vercel.com/).
-3. Click **Add New** → **Project** and import your repository.
-4. Vercel auto-detects Vue + Vite:
-   - **Framework preset:** Vue
-   - **Build command:** `npm run build`
-   - **Output directory:** `dist`
-5. Click **Deploy**.
-
-> ⚠️ For SPA client-side routing on Vercel, create a `vercel.json`:
-> ```json
-> { "rewrites": [{ "source": "/(.*)", "destination": "/index.html" }] }
-> ```
-
-### Deploy to GitHub Pages
-
-1. Set the correct base path in `vite.config.js`:
-   ```js
-   export default defineConfig({
-     base: '/repository-name/',
-     // ...
-   })
-   ```
-2. Build: `npm run build`
-3. Deploy `dist/` via:
-   - **GitHub Actions** — use [peaceiris/actions-gh-pages](https://github.com/peaceiris/actions-gh-pages)
-   - **Manual** — push `dist/` to the `gh-pages` branch
 
 ---
 

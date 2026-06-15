@@ -115,7 +115,8 @@ const timelineItems = [
                       <ul class="mt-4 space-y-2" :class="i % 2 === 0 ? 'md:text-right' : ''">
                         <li
                           v-for="(desc, j) in item.items"
-                          :key="j"                           class="text-white/50 text-sm leading-relaxed flex items-start gap-2 font-light"
+                          :key="j"
+                          class="text-white/50 text-sm leading-relaxed flex items-start gap-2 font-light"
                           :class="i % 2 === 0 ? 'md:flex-row-reverse' : ''"
                         >
                           <span class="w-1 h-1 rounded-full bg-white/20 mt-2 shrink-0" />

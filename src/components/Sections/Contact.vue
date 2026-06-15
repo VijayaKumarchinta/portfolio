@@ -86,7 +86,7 @@ const socialLinks = [
             <p class="text-xs font-mono tracking-widest uppercase text-white/30 mb-6">
               Find me online
             </p>
-            <div class="grid grid-cols-2 gap-4">
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
               <a
                 v-for="(social, i) in socialLinks"
                 :key="i"

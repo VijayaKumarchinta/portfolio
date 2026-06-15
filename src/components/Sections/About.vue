@@ -29,7 +29,7 @@ const techStack = [
       <div class="grid grid-cols-1 lg:grid-cols-12 gap-8">
         <!-- Left: Bio -->
         <div class="lg:col-span-7">
-          <GlassCard class="h-full">
+          <GlassCard wrapper-class="h-full">
             <p class="text-xs font-mono tracking-widest uppercase text-white/30 mb-4">
               About
             </p>

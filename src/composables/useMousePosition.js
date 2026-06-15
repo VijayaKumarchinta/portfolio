@@ -15,6 +15,9 @@ export function useMousePosition() {
   }
 
   onMounted(() => {
+    // Initialize to center so orbs/tilt start centered
+    x.value = window.innerWidth / 2
+    y.value = window.innerHeight / 2
     window.addEventListener('mousemove', update, { passive: true })
   })
 

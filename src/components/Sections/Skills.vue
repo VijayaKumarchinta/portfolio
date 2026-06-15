@@ -65,11 +65,11 @@ const categories = [
       </div>
 
       <!-- Bento Grid -->
-      <div class="grid grid-cols-1 lg:grid-cols-12 gap-4 auto-rows-[200px]">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-4 auto-rows-auto">
         <GlassCard
           v-for="(cat, i) in categories"
           :key="i"
-          :class="[cat.span, 'col-span-1 lg:row-span-1 flex flex-col']"
+          :wrapper-class="`${cat.span} col-span-1 lg:row-span-1 flex flex-col`"
           :glow-color="[
             'rgba(96, 165, 250, 0.15)',
             'rgba(52, 211, 153, 0.15)',
