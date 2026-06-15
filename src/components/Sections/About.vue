@@ -44,7 +44,7 @@ const techStack = [
               <p>
                 I'm an aspiring data enthusiast eager to turn raw data into meaningful stories.
                 As a recent
-                <span class="text-white/80">Software Development Intern at Bean Infosystems LLC</span>,
+                <span class="text-white/80">Software Development Intern at Bean Infosystems,Hyderabad</span>,
                 I got my first taste of building real-world applications and working with
                 a development team — and I've been hooked ever since.
               </p>
