@@ -8,8 +8,12 @@ import ScrollIndicator from '@/components/UI/ScrollIndicator.vue'
 
 const { x, y } = useMousePosition()
 const { prefersReducedMotion } = useReducedMotion()
-const { scrollTo } = useLenis()
+const { scrollTo: smoothScroll } = useLenis()
 const isVisible = ref(false)
+
+function handleScrollTo(id) {
+  smoothScroll(id)
+}
 
 // ── Smoothed orb positions with lerp ──
 const orbPositions = ref({ x1: 50, y1: 50, x2: 50, y2: 50 })
@@ -189,7 +193,7 @@ const socials = [
         >
           <MagneticButton
             variant="primary"
-            @click="scrollTo('#projects')"
+            @click="handleScrollTo('#projects')"
           >
             <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
               <path d="M22 12h-4l-3 9L9 3l-3 9H2" />
@@ -198,12 +202,12 @@ const socials = [
           </MagneticButton>
           <MagneticButton
             variant="secondary"
-            @click="scrollTo('#contact')"
+            @click="handleScrollTo('#contact')"
           >
             Get in Touch
           </MagneticButton>
           <MagneticButton
-            href="/Resume.pdf"
+            href="https://drive.google.com/file/d/1gfHSp5gCW0PlSTfAniIyXKBGgpc_bUCd/view?usp=sharing"
             variant="ghost"
           >
             <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
