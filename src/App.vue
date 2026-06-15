@@ -1,5 +1,4 @@
 <script setup>
-import { onMounted, onUnmounted } from 'vue'
 import ParticleField from '@/components/Canvas/ParticleField.vue'
 import NavBar from '@/components/UI/NavBar.vue'
 import Hero from '@/components/Sections/Hero.vue'
@@ -10,17 +9,6 @@ import Experience from '@/components/Sections/Experience.vue'
 import Certifications from '@/components/Sections/Certifications.vue'
 import Contact from '@/components/Sections/Contact.vue'
 import Footer from '@/components/Sections/Footer.vue'
-import { useLenis } from '@/composables/useLenis'
-
-const { initLenis, destroyLenis } = useLenis()
-
-onMounted(() => {
-  initLenis()
-})
-
-onUnmounted(() => {
-  destroyLenis()
-})
 </script>
 
 <template>

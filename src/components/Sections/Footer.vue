@@ -12,7 +12,7 @@ const { scrollTo } = useLenis()
             &copy; {{ new Date().getFullYear() }} Chinta Vijaya Kumar
           </p>
           <p class="text-white/10 text-xs font-mono mt-1">
-            Built with Vue.js, Three.js &amp; Lenis
+            Built with Vue.js, Three.js &amp; Tailwind
           </p>
         </div>
 
