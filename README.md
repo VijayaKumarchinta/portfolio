@@ -1,89 +1,147 @@
 # Portfolio
 
-A modern, dynamic portfolio website built with Vue 3 and Vite, showcasing my skills, projects, and experience in data analytics and software development.
+A modern, dynamic portfolio website built with **Vue 3** and **Vite**, showcasing skills, projects, and experience in data analytics and software development.
+
+**Live site:** [https://portfolio.pages.dev](https://portfolio.pages.dev) <!-- Update URL after Cloudflare deployment -->
 
 ## Features
 
-- **Modern UI**: Glassmorphism design with smooth animations and transitions.
-- **Dynamic Sections**: Built with Vue components for easy maintenance and scalability.
-- **Interactive Elements**: Hover effects, particle backgrounds, and scroll animations.
-- **Responsive Design**: Optimized for both desktop and mobile devices.
+- **Modern UI** — Glassmorphism design with smooth animations, gradient orbs, and particle backgrounds
+- **Interactive Elements** — Magnetic buttons, scroll-triggered text reveals, and real-time mouse-tracking effects
+- **Smooth Scrolling** — Powered by Lenis for fluid, performant scrolling
+- **Responsive Design** — Optimized for desktop, tablet, and mobile
+- **SPA Ready** — Client-side routing handled via `_redirects` (Netlify / Cloudflare Pages)
 
 ## Sections
 
-- **About**: A brief introduction and personal statement.
-- **Skills**: A showcase of technical proficiencies and tools.
-- **Experience**: Professional background and career timeline.
-- **Projects**: Highlighted data analytics and software development projects.
+- **Hero** — Full-screen intro with animated particle field
+- **About** — Personal introduction and background
+- **Skills** — Technical proficiencies and tools displayed with glassmorphism cards
+- **Projects** — Highlighted data analytics and software development projects
+- **Experience** — Professional background and career timeline
+- **Certifications** — Relevant certifications and credentials
+- **Contact** — Get in touch form / links
+- **Footer** — Social links and attribution
 
 ## Tech Stack
 
-- **Framework**: [Vue 3](https://vuejs.org/)
-- **Build Tool**: [Vite](https://vitejs.dev/)
-- **Styling**: CSS with Custom Properties
-- **Icons**: [Font Awesome](https://fontawesome.com/)
+| Layer | Technology |
+|-------|-----------|
+| **Framework** | [Vue 3](https://vuejs.org/) (Composition API + `<script setup>`) |
+| **Build Tool** | [Vite](https://vitejs.dev/) v8 |
+| **Styling** | [Tailwind CSS](https://tailwindcss.com/) v4 with custom CSS properties and glassmorphism utilities |
+| **Animation** | [@vueuse/motion](https://motion.vueuse.org/) for scroll-triggered reveals, [Lenis](https://lenis.darkroom.engineering/) for smooth scrolling |
+| **3D / Visuals** | [Three.js](https://threejs.org/) for particle field background |
+| **Utilities** | [@vueuse/core](https://vueuse.org/) — mouse position tracking, composables |
+| **Icons** | Custom SVG icons (no icon library dependency) |
+| **Fonts** | Cabinet Grotesk (display) + JetBrains Mono (code) via Google Fonts / Fontshare |
 
 ## Getting Started
 
 ### Prerequisites
 
-- [Node.js](https://nodejs.org/) (v14 or higher)
-- [npm](https://www.npmjs.com/)
+- [Node.js](https://nodejs.org/) v18 or higher (v22+ recommended)
+- npm, pnpm, or yarn
 
 ### Installation
 
-1. Clone the repository:
 ```bash
-git clone <repository-url>
-cd Portfolio
-```
-
-2. Install dependencies:
-```bash
+git clone https://github.com/VijayaKumarchinta/portfolio.git
+cd portfolio
 npm install
 ```
 
 ### Development
 
-Run the development server:
 ```bash
 npm run dev
 ```
 
-The application will be available at `http://localhost:5173`.
+The dev server runs at `http://localhost:5173`.
 
 ### Build
 
-To create a production build:
 ```bash
 npm run build
 ```
 
-The build output will be stored in the `dist/` directory.
+Output is written to the `dist/` directory with code-split chunks (Three.js and Vue are separated for optimal caching).
 
 ### Preview
 
-To preview the production build locally:
 ```bash
 npm run preview
 ```
 
+Serves the production build locally from `dist/`.
+
+## Project Structure
+
+```
+src/
+├── App.vue                          # Root component
+├── main.js                          # App entry point
+├── style.css                        # Global styles + Tailwind imports
+├── assets/                          # Static images (hero.png, svg icons)
+├── components/
+│   ├── Canvas/
+│   │   └── ParticleField.vue        # Three.js animated particle background
+│   ├── Sections/
+│   │   ├── Hero.vue                 # Intro / landing section
+│   │   ├── About.vue                # Personal background
+│   │   ├── Skills.vue               # Skills grid with glass cards
+│   │   ├── Projects.vue             # Project showcase
+│   │   ├── Experience.vue           # Career timeline
+│   │   ├── Certifications.vue       # Certifications
+│   │   ├── Contact.vue              # Contact form / links
+│   │   └── Footer.vue               # Footer
+│   └── UI/
+│       ├── NavBar.vue               # Sticky navigation
+│       ├── GlassCard.vue            # Reusable glassmorphism card
+│       ├── MagneticButton.vue       # Button with magnetic hover effect
+│       ├── RevealText.vue           # Scroll-triggered text animation
+│       └── ScrollIndicator.vue      # Scroll-down indicator
+└── composables/
+    ├── useLenis.js                  # Lenis smooth scroll integration
+    ├── useMousePosition.js          # Real-time mouse tracking
+    └── useParticles.js              # Three.js particle system logic
+```
+
 ## Deployment
+
+### Deploy to Cloudflare Pages
+
+SPA routing is handled automatically via `public/_redirects` (supported natively).
+
+**Via the Dashboard (recommended):**
+1. Push your code to a GitHub repository.
+2. Log in to the [Cloudflare Dashboard](https://dash.cloudflare.com/).
+3. Go to **Workers & Pages** → **Create** → **Pages** → **Connect to Git**.
+4. Select your repository and configure:
+   - **Build command:** `npm run build`
+   - **Build output directory:** `dist`
+   - **Deploy command:** `npx wrangler pages deploy dist`
+5. Click **Save and Deploy**.
+
+**Via CLI:**
+```bash
+npx wrangler login
+npx wrangler pages deploy dist --project-name=portfolio
+```
 
 ### Deploy to Netlify
 
-This project is pre-configured for Netlify with SPA routing support (`public/_redirects`).
+Pre-configured for Netlify with SPA routing via `public/_redirects`.
 
-**Option A — Automatic (recommended):**
-1. Push your code to a Git repository (GitHub, GitLab, or Bitbucket).
+1. Push your code to a Git repository.
 2. Log in to [Netlify](https://app.netlify.com/).
 3. Click **Add new site** → **Import an existing project**.
-4. Connect your repository and Netlify will auto-detect the build settings:
+4. Connect your repository — Netlify auto-detects:
    - **Build command:** `npm run build`
    - **Publish directory:** `dist`
 5. Click **Deploy site**.
 
-**Option B — CLI (one-command deploy):**
+CLI alternative:
 ```bash
 npx netlify-cli deploy --prod --dir=dist
 ```
@@ -93,54 +151,31 @@ npx netlify-cli deploy --prod --dir=dist
 1. Push your code to a Git repository.
 2. Log in to [Vercel](https://vercel.com/).
 3. Click **Add New** → **Project** and import your repository.
-4. Vercel will auto-detect Vite and set:
+4. Vercel auto-detects Vue + Vite:
    - **Framework preset:** Vue
    - **Build command:** `npm run build`
    - **Output directory:** `dist`
 5. Click **Deploy**.
 
-> ⚠️ For SPA client-side routing on Vercel, create a `vercel.json` in the project root:
+> ⚠️ For SPA client-side routing on Vercel, create a `vercel.json`:
 > ```json
-> {
->   "rewrites": [{"source": "/(.*)", "destination": "/index.html"}]
-> }
+> { "rewrites": [{ "source": "/(.*)", "destination": "/index.html" }] }
 > ```
-
-### Deploy to Cloudflare Pages
-
-SPA routing is handled automatically via the `public/_redirects` file (supported natively by Cloudflare Pages).
-
-**Via the Dashboard (recommended):**
-1. Push your code to a GitHub repository.
-2. Log in to the [Cloudflare Dashboard](https://dash.cloudflare.com/).
-3. Go to **Workers & Pages** → **Create** → **Pages** → **Connect to Git**.
-4. Select your repository — the build settings will be auto-detected:
-   - **Build command:** `npm run build`
-   - **Build output directory:** `dist`
-5. Click **Save and Deploy**.
-
-> No `wrangler.toml` needed — all configuration is handled in the dashboard.
-
-**Via CLI:**
-```bash
-npx wrangler login
-npx wrangler pages deploy dist --project-name=portfolio
-```
 
 ### Deploy to GitHub Pages
 
-1. Update `vite.config.js` to set the correct base path:
+1. Set the correct base path in `vite.config.js`:
    ```js
    export default defineConfig({
-     base: '/repository-name/', // replace with your repo name
+     base: '/repository-name/',
      // ...
    })
    ```
-2. Build the project: `npm run build`
-3. Deploy the `dist` folder using any of these methods:
-   - **GitHub Actions** — use the [peaceiris/actions-gh-pages](https://github.com/peaceiris/actions-gh-pages) action.
-   - **Manual** — push the `dist` folder to the `gh-pages` branch.
+2. Build: `npm run build`
+3. Deploy `dist/` via:
+   - **GitHub Actions** — use [peaceiris/actions-gh-pages](https://github.com/peaceiris/actions-gh-pages)
+   - **Manual** — push `dist/` to the `gh-pages` branch
 
 ---
 
-> 💡 This project is optimized for static hosting. The `_redirects` file handles SPA client-side routing on Netlify and Cloudflare Pages out of the box.
+> 💡 The `public/_redirects` file handles SPA routing on Cloudflare Pages and Netlify out of the box.
