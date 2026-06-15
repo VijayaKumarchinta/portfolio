@@ -7,6 +7,6 @@ const { containerRef } = useParticles()
 <template>
   <div
     ref="containerRef"
-    class="fixed inset-0 -z-10"
+    class="fixed inset-0 -z-10 pointer-events-none"
   />
 </template>

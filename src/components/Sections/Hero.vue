@@ -130,13 +130,13 @@ const socials = [
 
     <!-- Content with 3D parallax tilt -->
     <div
-      class="relative z-10 section-container text-center"
+      class="relative z-10 section-container text-center pointer-events-none"
       :style="{
         perspective: '1200px',
-        transformStyle: 'preserve-3d',
       }"
     >
       <div
+        class="pointer-events-auto"
         :style="prefersReducedMotion ? {} : {
           transform: `rotateX(${tiltX}deg) rotateY(${tiltY}deg)`,
         }"
