@@ -15,6 +15,7 @@ A modern, dynamic portfolio website built with Vue 3 and Vite, showcasing my ski
 - **Skills**: A showcase of technical proficiencies and tools.
 - **Experience**: Professional background and career timeline.
 - **Projects**: Highlighted data analytics and software development projects.
+
 ## Tech Stack
 
 - **Framework**: [Vue 3](https://vuejs.org/)

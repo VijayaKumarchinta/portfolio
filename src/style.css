@@ -1,0 +1,171 @@
+@import "tailwindcss";
+
+/* ── Design Tokens ── */
+@theme {
+  --color-dark-50: #f6f6f9;
+  --color-dark-100: #ecedf3;
+  --color-dark-200: #d5d7e5;
+  --color-dark-300: #b2b4ce;
+  --color-dark-400: #898bb1;
+  --color-dark-500: #6a6c99;
+  --color-dark-600: #55567f;
+  --color-dark-700: #464768;
+  --color-dark-800: #3c3d57;
+  --color-dark-900: #35354b;
+  --color-dark-950: #0a0a0f;
+  --color-accent-50: #f0f0ff;
+  --color-accent-100: #e0e0ff;
+  --color-accent-200: #c4c6ff;
+  --color-accent-300: #9e9eff;
+  --color-accent-400: #7c6fff;
+  --color-accent-500: #6c47ff;
+  --color-accent-600: #5b22f5;
+  --color-accent-700: #4d18d8;
+  --color-accent-800: #4015ae;
+  --color-accent-900: #36158c;
+  --color-accent-950: #1f0a5f;
+  --font-sans: 'Cabinet Grotesk', 'Inter', system-ui, -apple-system, sans-serif;
+  --font-mono: 'JetBrains Mono', monospace;
+  --animate-glow: glow 4s ease-in-out infinite alternate;
+  --animate-float: float 6s ease-in-out infinite;
+  --animate-spotlight: spotlight 8s ease-in-out infinite;
+}
+
+@keyframes glow {
+  0% { opacity: 0.4; }
+  100% { opacity: 0.8; }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-20px); }
+}
+
+@keyframes spotlight {
+  0%, 100% { opacity: 0; transform: translate(-50%, -50%) scale(0.8); }
+  50% { opacity: 1; transform: translate(-50%, -50%) scale(1.2); }
+}
+
+/* ── Glassmorphism ── */
+.glass {
+  background: rgba(255, 255, 255, 0.03);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.glass-strong {
+  background: rgba(255, 255, 255, 0.06);
+  backdrop-filter: blur(32px);
+  -webkit-backdrop-filter: blur(32px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* ── Gradient Text ── */
+.gradient-text {
+  background: linear-gradient(135deg, #60a5fa, #a78bfa, #f472b6);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  background-size: 200% 200%;
+  animation: gradient-shift 6s ease-in-out infinite alternate;
+}
+
+.gradient-text-blue {
+  background: linear-gradient(135deg, #60a5fa, #818cf8);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  background-size: 200% 200%;
+  animation: gradient-shift 6s ease-in-out infinite alternate;
+}
+
+@keyframes gradient-shift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* ── Gradient Ops ── */
+.gradient-orb {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(80px);
+  pointer-events: none;
+}
+
+.gradient-orb--blue {
+  background: radial-gradient(circle at center, rgba(96, 165, 250, 0.3), transparent 70%);
+}
+
+.gradient-orb--purple {
+  background: radial-gradient(circle at center, rgba(167, 139, 250, 0.3), transparent 70%);
+}
+
+.gradient-orb--pink {
+  background: radial-gradient(circle at center, rgba(244, 114, 182, 0.25), transparent 70%);
+}
+
+/* ── Noise Overlay ── */
+.noise-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  pointer-events: none;
+  opacity: 0.03;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+  background-repeat: repeat;
+  background-size: 256px 256px;
+}
+
+/* ── Scrollbar ── */
+::-webkit-scrollbar {
+  width: 4px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 2px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+/* ── Selection ── */
+::selection {
+  background: rgba(124, 111, 255, 0.3);
+  color: white;
+}
+
+/* ── Base ── */
+html {
+  scroll-behavior: auto;
+}
+
+body {
+  margin: 0;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* ── Section Spacing ── */
+.section-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+@media (min-width: 768px) {
+  .section-container {
+    padding: 0 48px;
+  }
+}
+
+@media (min-width: 1280px) {
+  .section-container {
+    padding: 0 64px;
+  }
+}
