@@ -29,7 +29,8 @@ const chars = props.text.split('')
           :style="{
             transitionDelay: `${delay + i * 40}ms`,
           }"
-        >{{ word }}\u00A0</span>
+>
+            {{ word + '\u00A0' }}</span>
       </span>
     </template>
     <template v-else>
