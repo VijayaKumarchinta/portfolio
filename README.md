@@ -2,7 +2,7 @@
 
 A modern, dynamic portfolio website built with **Vue 3** and **Vite**, showcasing skills, projects, and experience in data analytics and software development.
 
-**Live site:** [https://portfolio.pages.dev](https://portfolio.pages.dev)
+**Live site:** [https://portfolio-4fk.pages.dev](https://portfolio-4fk.pages.dev)
 
 ## Features
 
