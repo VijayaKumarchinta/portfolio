@@ -108,18 +108,20 @@ npx netlify-cli deploy --prod --dir=dist
 
 ### Deploy to Cloudflare Pages
 
-This project includes a `wrangler.toml` for Cloudflare Pages. SPA routing is handled automatically via the `public/_redirects` file.
+SPA routing is handled automatically via the `public/_redirects` file (supported natively by Cloudflare Pages).
 
-**Option A — Dashboard (recommended):**
+**Via the Dashboard (recommended):**
 1. Push your code to a GitHub repository.
 2. Log in to the [Cloudflare Dashboard](https://dash.cloudflare.com/).
 3. Go to **Workers & Pages** → **Create** → **Pages** → **Connect to Git**.
-4. Select your repository and configure:
+4. Select your repository — the build settings will be auto-detected:
    - **Build command:** `npm run build`
    - **Build output directory:** `dist`
 5. Click **Save and Deploy**.
 
-**Option B — CLI (one-command deploy):**
+> No `wrangler.toml` needed — all configuration is handled in the dashboard.
+
+**Via CLI:**
 ```bash
 npx wrangler login
 npx wrangler pages deploy dist --project-name=portfolio
