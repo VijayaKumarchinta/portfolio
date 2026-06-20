@@ -5,11 +5,11 @@ import RevealText from '@/components/UI/RevealText.vue'
 
 const projects = [
   {
-    title: 'Liverseg',
-    subtitle: 'Liver Segmentation with Attention U-Net',
-    description: 'Advanced deep learning project implementing Attention U-Net architecture for automated liver and tumor segmentation from CT scans. Achieved high Dice scores using PyTorch and MONAI framework.',
-    tags: ['PyTorch', 'MONAI', 'Deep Learning', 'Medical Imaging', 'OpenCV'],
-    github: 'https://github.com/VijayaKumarchinta/Liver_Segmentation',
+    title: 'Customer Sales Dashboard',
+    subtitle: '1M+ Transactions Analyzed',
+    description: 'Analyzed over 1 million transactions to uncover sales trends, customer segments, and revenue drivers. Built an interactive dashboard using Python and Pandas, deployed via Streamlit for real-time business insights and data exploration.',
+    tags: ['Python', 'Pandas', 'Streamlit', 'Data Analysis', 'SQL'],
+    github: 'https://github.com/VijayaKumarchinta/Customer_seg',
     color: 'rgba(96, 165, 250, 0.2)',
   },
   {
@@ -19,14 +19,6 @@ const projects = [
     tags: ['Vue.js', 'FastAPI', 'PostgreSQL', 'JWT Auth', 'Python', 'RBAC'],
     github: 'https://github.com/VijayaKumarchinta/HaettAssessment',
     color: 'rgba(167, 139, 250, 0.2)',
-  },
-  {
-    title: 'Customer Segmentation Dashboard',
-    subtitle: '1M+ Transactions Analyzed',
-    description: 'Analyzed over 1 million transactions using K-Means clustering with RFM analysis to segment customers. Deployed an interactive dashboard via Streamlit for real-time business insights and data exploration.',
-    tags: ['Python', 'Scikit-learn', 'Pandas', 'Streamlit', 'K-Means', 'RFM Analysis'],
-    github: null,
-    color: 'rgba(52, 211, 153, 0.2)',
   },
 ]
 </script>
@@ -49,7 +41,7 @@ const projects = [
           />
         </h2>
         <p class="text-white/40 max-w-xl mx-auto">
-          Applying data science and engineering to solve real-world problems.
+          Turning data into actionable business insights through analytics.
         </p>
       </div>
 
