@@ -180,9 +180,8 @@ const socials = [
         >
           Crafting data-driven stories with
           <span class="text-white/70">Python, SQL, and BI tools</span>.
-          Turning raw data into actionable insights through
-          <span class="text-white/70">machine learning</span>
-          and beautiful visualizations.
+          Building interactive dashboards that transform
+          <span class="text-white/70">complex data into clear decisions</span>.
         </p>
 
         <!-- CTAs -->

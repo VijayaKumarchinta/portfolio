@@ -12,11 +12,9 @@ const stats = [
 const techStack = [
   'Python', 'SQL',
   'Tableau', 'Power BI', 'Excel',
-  'Pandas', 'NumPy', 'Scikit-learn',
-  'TensorFlow', 'PyTorch', 'OpenCV',
+  'Pandas', 'Numpy',
   'Flask', 'FastAPI', 'Vue.js','Node.js',
   'Git', 'Docker', 'PostgreSQL', 'MongoDB',
-  'AWS', 'GCP',
 ]
 </script>
 
@@ -60,8 +58,7 @@ const techStack = [
               <p>
                 I also enjoy building
                 <span class="text-white/80">full-stack web apps</span>
-                with Flask, FastAPI, and Vue.js, and I'm always exploring how data science
-                and software engineering come together to solve real problems.
+                with Flask, FastAPI,              and Vue.js, turning data into intuitive, business-ready solutions.
               </p>
             </div>
           </GlassCard>

@@ -19,13 +19,13 @@ const timelineItems = [
   },
   {
     type: 'education',
-    title: 'B.Tech in Computer Science',
-    org: 'KL University, Guntur',
+    title: 'B.Tech in Data Science & Big Data Analytics',
+    org: 'Koneru Lakshmaiah Education Foundation',
     period: '2022 — 2026',
     items: [
-      'Specializing in data science and machine learning',
+      'Focused on statistical analysis, database management, and BI tools',
+      'Built multiple data-driven projects and dashboards',
       'Active participant in hackathons and coding competitions',
-      'Built multiple data-driven projects and research papers',
     ],
     icon: 'M12 14l9-5-9-5-9 5 9 5zm0 7l-9-5 9-5 9 5-9 5z',
     color: 'rgba(167, 139, 250, 0.2)',

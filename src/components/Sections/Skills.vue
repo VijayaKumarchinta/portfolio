@@ -54,7 +54,7 @@ const categories = [
           />
         </h2>
         <p class="text-white/40 max-w-xl mx-auto font-light">
-          A comprehensive toolkit spanning the entire data analytics and development lifecycle.
+          A focused toolkit for data analytics, BI, and reporting.
         </p>
       </div>
 
