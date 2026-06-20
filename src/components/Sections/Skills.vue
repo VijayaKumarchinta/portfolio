@@ -4,40 +4,34 @@ import RevealText from '@/components/UI/RevealText.vue'
 
 const categories = [
   {
-    title: 'Programming',
+    title: 'Languages',
     span: 'lg:col-span-4',
     skills: ['Python', 'SQL'],
     icon: 'M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6-1.6 1.6a1 1 0 0 0 1.4 1.4l2.3-2.3a1 1 0 0 0 0-1.4l-2.3-2.3a1 1 0 0 0-1.4 0zm-5.4 0a1 1 0 0 0-1.4 0L5.6 8.6a1 1 0 0 0 0 1.4l2.3 2.3a1 1 0 0 0 1.4-1.4L7.7 9.3l1.6-1.6a1 1 0 0 0 0-1.4zM11 5a1 1 0 0 1 1.4.4l3 5a1 1 0 0 1-.4 1.4 1 1 0 0 1-1.4-.4l-3-5A1 1 0 0 1 11 5z',
   },
   {
-    title: 'BI & Visualization',
+    title: 'Data & BI Tools',
     span: 'lg:col-span-4',
-    skills: ['Tableau', 'Power BI', 'Excel'],
+    skills: ['Pandas', 'NumPy', 'Matplotlib', 'Seaborn', 'Power BI', 'Tableau'],
     icon: 'M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z',
   },
   {
-    title: 'ML & AI',
+    title: 'Databases',
     span: 'lg:col-span-4',
-    skills: ['Scikit-learn', 'TensorFlow', 'PyTorch', 'OpenCV'],
-    icon: 'M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z',
-  },
-  {
-    title: 'Web & Backend',
-    span: 'lg:col-span-6',
-    skills: ['Flask', 'FastAPI', 'Vue.js', 'HTML/CSS', 'JavaScript', 'Node.js'],
-    icon: 'M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9',
-  },
-  {
-    title: 'Databases & Cloud',
-    span: 'lg:col-span-6',
-    skills: ['PostgreSQL', 'MongoDB'],
+    skills: ['PostgreSQL'],
     icon: 'M3 15a4 4 0 004 4h9a5 5 0 10-.1-9.999 5.002 5.002 0 10-9.78 2.096A4.001 4.001 0 003 15z',
   },
   {
-    title: 'Soft Skills',
+    title: 'Dev Tools',
     span: 'lg:col-span-6',
-    skills: ['Analytical Thinking', 'Problem Solving', 'Communication', 'Team Collaboration', 'Adaptability'],
-    icon: 'M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z',
+    skills: ['Git', 'GitHub', 'Docker'],
+    icon: 'M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4',
+  },
+  {
+    title: 'Frameworks',
+    span: 'lg:col-span-6',
+    skills: ['Vue.js', 'FastAPI', 'Flask'],
+    icon: 'M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9',
   },
 ]
 </script>

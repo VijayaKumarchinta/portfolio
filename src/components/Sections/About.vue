@@ -3,10 +3,10 @@ import GlassCard from '@/components/UI/GlassCard.vue'
 import RevealText from '@/components/UI/RevealText.vue'
 
 const stats = [
-  { value: '2+', label: 'Years Learning' },
-  { value: '3', label: 'Projects' },
+  { value: '8.8', label: 'CGPA' },
   { value: '3', label: 'Certifications' },
-  { value: '5+', label: 'Tech Stacks' },
+  { value: '3', label: 'Projects' },
+  { value: '20+', label: 'Tech Stacks' },
 ]
 
 const techStack = [
@@ -42,20 +42,20 @@ const techStack = [
             </h2>
             <div class="space-y-4 text-white/50 leading-relaxed text-base md:text-lg font-light">
               <p>
-                I'm an aspiring data enthusiast eager to turn raw data into meaningful stories.
-                As a recent
-                <span class="text-white/80">Software Development Intern at Bean Infosystems,Hyderabad</span>,
-                I got my first taste of building real-world applications and working with
-                a development team — and I've been hooked ever since.
+                I'm a recent
+                <span class="text-white/80">Data Science & Big Data Analytics</span>
+                graduate passionate about turning raw data into actionable business insights.
+                Skilled in
+                <span class="text-white/80">Python, SQL, statistical reasoning,</span>
+                and building interactive dashboards with
+                <span class="text-white/80">Power BI, Tableau, and Amazon QuickSight</span>.
               </p>
               <p>
-                I'm building a solid foundation across the data landscape — from
-                <span class="text-white/80">Python, SQL, and data cleaning</span>
-                to
-                <span class="text-white/80">machine learning, visualization,</span>
-                and
-                <span class="text-white/80">dashboard creation with Tableau and Power BI</span>.
-                Every project I take on is a chance to learn something new and sharpen my skills.
+                As an intern at
+                <span class="text-white/80">Bean Infosystems, Hyderabad</span>,
+                I optimized database queries, debugged application issues, and collaborated
+                on backend data integration — gaining real-world experience working within
+                a development team.
               </p>
               <p>
                 I also enjoy building
@@ -111,15 +111,9 @@ const techStack = [
               <div class="flex items-start gap-3">
                 <div class="w-1.5 h-1.5 rounded-full bg-blue-400 mt-2 shrink-0" />
                 <div>
-                  <p class="text-white text-sm font-medium">B.Tech in Computer Science</p>
-                  <p class="text-white/40 text-xs">KL University, Guntur — 2022-2026</p>
-                </div>
-              </div>
-              <div class="flex items-start gap-3">
-                <div class="w-1.5 h-1.5 rounded-full bg-purple-400 mt-2 shrink-0" />
-                <div>
-                  <p class="text-white text-sm font-medium">Intermediate (MPC)</p>
-                  <p class="text-white/40 text-xs">Tirumala Jr College, Rajahmundry — 2020-2022</p>
+                  <p class="text-white text-sm font-medium">B.Tech in Data Science & Big Data Analytics</p>
+                  <p class="text-white/40 text-xs">Koneru Lakshmaiah Education Foundation — 2022-2026</p>
+                  <p class="text-white/30 text-xs mt-0.5">CGPA: 8.8 / 10</p>
                 </div>
               </div>
             </div>

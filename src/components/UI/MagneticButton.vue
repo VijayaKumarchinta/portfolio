@@ -4,6 +4,7 @@ import { ref } from 'vue'
 const props = defineProps({
   href: { type: String, default: null },
   target: { type: String, default: '_blank' },
+  download: { type: [Boolean, String], default: false },
   wrapperClass: { type: String, default: '' },
   variant: { type: String, default: 'primary' }, // primary | secondary | ghost
 })
@@ -33,6 +34,7 @@ function handleLeave() {
     :ref="(el) => (btnRef = el)"
     :href="href"
     :target="href ? target : undefined"
+    :download="download || undefined"
     :rel="href && target === '_blank' ? 'noopener noreferrer' : undefined"
     :class="[
       'inline-flex items-center gap-2 px-6 py-3 rounded-xl font-medium text-sm transition-all duration-200 cursor-pointer select-none',

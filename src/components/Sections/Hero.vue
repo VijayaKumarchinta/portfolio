@@ -207,7 +207,8 @@ const socials = [
             Get in Touch
           </MagneticButton>
           <MagneticButton
-            href="https://drive.google.com/file/d/1gfHSp5gCW0PlSTfAniIyXKBGgpc_bUCd/view?usp=sharing"
+            href="/resume.pdf"
+            download
             variant="ghost"
           >
             <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">

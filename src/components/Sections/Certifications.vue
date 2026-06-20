@@ -11,14 +11,14 @@ const certifications = [
     color: 'rgba(255, 153, 0, 0.15)',
   },
   {
-    title: 'Salesforce AI Associate',
+    title: 'Salesforce Certified AI Associate',
     issuer: 'Salesforce',
     description: 'Certification in AI fundamentals within the Salesforce ecosystem, including Einstein AI and ethical AI practices.',
     icon: 'M13 10V3L4 14h7v7l9-11h-7z',
     color: 'rgba(0, 168, 255, 0.15)',
   },
   {
-    title: 'RPA Essential (Automation Anywhere)',
+    title: 'Automation Anywhere Certified Essentials RPA Professional',
     issuer: 'Automation Anywhere',
     description: 'Foundational robotic process automation certification covering bot creation, automation workflows, and deployment.',
     icon: 'M15 12a3 3 0 11-6 0 3 3 0 016 0z M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z',
