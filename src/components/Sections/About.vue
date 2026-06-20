@@ -5,8 +5,8 @@ import RevealText from '@/components/UI/RevealText.vue'
 const stats = [
   { value: '8.8', label: 'CGPA' },
   { value: '3', label: 'Certifications' },
-  { value: '3', label: 'Projects' },
-  { value: '20+', label: 'Tech Stacks' },
+  { value: '2', label: 'Projects' },
+  { value: '15', label: 'Tech Stacks' },
 ]
 
 const techStack = [
