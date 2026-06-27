@@ -20,6 +20,14 @@ const projects = [
     github: 'https://github.com/VijayaKumarchinta/HaettAssessment',
     color: 'rgba(167, 139, 250, 0.2)',
   },
+  {
+    title: 'Sales Analytics Platform',
+    subtitle: 'Full-Stack Analytics with Dashboards',
+    description: 'Built a full-stack sales analytics platform featuring interactive dashboards with real-time KPIs, sales trend analysis, profit margin tracking, customer segmentation with LTV tracking, and PDF/Excel export capabilities. Uses Django REST framework with Supabase for the backend.',
+    tags: ['Vue 3', 'Django', 'Supabase', 'PostgreSQL', 'ApexCharts', 'Tailwind CSS'],
+    github: 'https://github.com/VijayaKumarchinta/Sales_analytics',
+    color: 'rgba(251, 191, 36, 0.2)',
+  },
 ]
 </script>
 
