@@ -1,0 +1,4 @@
+name = "portfolio"
+pages_build_command = "npm run build"
+pages_output_dir = "dist"
+compatibility_date = "2026-07-01"
