@@ -4,24 +4,24 @@ import RevealText from '@/components/UI/RevealText.vue'
 
 const certifications = [
   {
-    title: 'AWS Certified Cloud Practitioner',
+    title: 'AWS Cloud Practitioner Essentials',
     issuer: 'Amazon Web Services',
-    description: 'Foundational certification validating cloud knowledge with AWS services, architecture, security, and pricing.',
+    description: 'Foundational cloud certification validating knowledge of AWS services, architecture, security, and core cloud concepts.',
     icon: 'M8 9l3 3-3 3m5 0h3M5 20h14a2 2 0 002-2V6a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z',
     color: 'rgba(255, 153, 0, 0.15)',
   },
   {
-    title: 'Salesforce Certified AI Associate',
-    issuer: 'Salesforce',
-    description: 'Certification in AI fundamentals within the Salesforce ecosystem, including Einstein AI and ethical AI practices.',
-    icon: 'M13 10V3L4 14h7v7l9-11h-7z',
-    color: 'rgba(0, 168, 255, 0.15)',
+    title: 'Data Science for Engineers',
+    issuer: 'NPTEL',
+    description: 'Comprehensive course covering data science methodologies, statistical modeling, and engineering applications of data-driven decision making.',
+    icon: 'M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z',
+    color: 'rgba(59, 130, 246, 0.15)',
   },
   {
-    title: 'Automation Anywhere Certified Essentials RPA Professional',
-    issuer: 'Automation Anywhere',
-    description: 'Foundational robotic process automation certification covering bot creation, automation workflows, and deployment.',
-    icon: 'M15 12a3 3 0 11-6 0 3 3 0 016 0z M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z',
+    title: 'Business Intelligence & Analytics',
+    issuer: 'NPTEL',
+    description: 'In-depth study of business intelligence frameworks, data warehousing, analytics techniques, and dashboard-driven business strategy.',
+    icon: 'M11 3.055A9.001 9.001 0 1020.945 13H11V3.055z M20.488 9H15V3.512A9.025 9.025 0 0120.488 9z',
     color: 'rgba(167, 139, 250, 0.15)',
   },
 ]
