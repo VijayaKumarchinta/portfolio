@@ -6,15 +6,16 @@ const stats = [
   { value: '8.8', label: 'CGPA' },
   { value: '3', label: 'Certifications' },
   { value: '2', label: 'Projects' },
-  { value: '15', label: 'Tech Stacks' },
+  { value: '18', label: 'Tech Stacks' },
 ]
 
 const techStack = [
   'Python', 'SQL',
   'Tableau', 'Power BI', 'Excel',
-  'Pandas', 'Numpy',
+  'Pandas', 'Numpy', 'scikit-learn',
   'Flask', 'FastAPI', 'Vue.js','Node.js',
-  'Git', 'Docker', 'PostgreSQL', 'MongoDB',
+  'Git', 'Docker', 'Postman',
+  'PostgreSQL', 'SQLite', 'MongoDB',
 ]
 </script>
 
@@ -40,12 +41,14 @@ const techStack = [
             </h2>
             <div class="space-y-4 text-white/50 leading-relaxed text-base md:text-lg font-light">
               <p>
-                I'm a recent
+                I'm a
                 <span class="text-white/80">Data Science & Big Data Analytics</span>
                 graduate passionate about turning raw data into actionable business insights.
                 Skilled in
-                <span class="text-white/80">Python, SQL, statistical reasoning,</span>
-                and building interactive dashboards with
+                <span class="text-white/80">Python, SQL, statistical analysis,</span>
+                and building interactive dashboards and
+                <span class="text-white/80">customer segmentation models</span>
+                with
                 <span class="text-white/80">Power BI, Tableau, and Amazon QuickSight</span>.
               </p>
               <p>
@@ -56,9 +59,9 @@ const techStack = [
                 a development team.
               </p>
               <p>
-                I also enjoy building
-                <span class="text-white/80">full-stack web apps</span>
-                with Flask, FastAPI,              and Vue.js, turning data into intuitive, business-ready solutions.
+                I enjoy building
+                <span class="text-white/80">full-stack analytics platforms</span>
+                with Flask, FastAPI, and Vue.js, turning data into intuitive, business-ready solutions.
               </p>
             </div>
           </GlassCard>

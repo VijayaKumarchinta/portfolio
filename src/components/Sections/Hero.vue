@@ -148,7 +148,7 @@ const socials = [
           style="transition-delay: 200ms"
         >
           <span class="w-2 h-2 rounded-full bg-emerald-400" :class="{ 'animate-pulse': !prefersReducedMotion }" />
-          Data Analyst &amp; BI Analyst
+          Data Science Graduate &amp; Data Analyst
         </div>
 
         <!-- Name with word stagger reveal -->
@@ -178,10 +178,10 @@ const socials = [
           :class="isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'"
           style="transition-delay: 600ms"
         >
-          Crafting data-driven stories with
-          <span class="text-white/70">Python, SQL, and BI tools</span>.
-          Building interactive dashboards that transform
-          <span class="text-white/70">complex data into clear decisions</span>.
+          Data Science graduate transforming data into insights with
+          <span class="text-white/70">Python, SQL, and Power BI</span>.
+          Building interactive dashboards and analytics models
+          <span class="text-white/70">that drive smarter business decisions</span>.
         </p>
 
         <!-- CTAs -->
