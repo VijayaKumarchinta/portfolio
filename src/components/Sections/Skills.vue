@@ -6,19 +6,19 @@ const categories = [
   {
     title: 'Languages',
     span: 'lg:col-span-4',
-    skills: ['Python', 'SQL'],
+    skills: ['Python', 'SQL', 'TypeScript'],
     icon: 'M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6-1.6 1.6a1 1 0 0 0 1.4 1.4l2.3-2.3a1 1 0 0 0 0-1.4l-2.3-2.3a1 1 0 0 0-1.4 0zm-5.4 0a1 1 0 0 0-1.4 0L5.6 8.6a1 1 0 0 0 0 1.4l2.3 2.3a1 1 0 0 0 1.4-1.4L7.7 9.3l1.6-1.6a1 1 0 0 0 0-1.4zM11 5a1 1 0 0 1 1.4.4l3 5a1 1 0 0 1-.4 1.4 1 1 0 0 1-1.4-.4l-3-5A1 1 0 0 1 11 5z',
   },
   {
     title: 'Data & BI Tools',
     span: 'lg:col-span-4',
-    skills: ['Pandas', 'NumPy', 'Matplotlib', 'Seaborn', 'Power BI', 'Tableau'],
+    skills: ['Pandas', 'NumPy', 'Matplotlib', 'Seaborn', 'Power BI', 'Tableau', 'ApexCharts'],
     icon: 'M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z',
   },
   {
     title: 'Databases',
     span: 'lg:col-span-4',
-    skills: ['PostgreSQL'],
+    skills: ['MySQL'],
     icon: 'M3 15a4 4 0 004 4h9a5 5 0 10-.1-9.999 5.002 5.002 0 10-9.78 2.096A4.001 4.001 0 003 15z',
   },
   {
@@ -30,7 +30,7 @@ const categories = [
   {
     title: 'Frameworks',
     span: 'lg:col-span-6',
-    skills: ['Vue.js', 'FastAPI', 'Flask'],
+    skills: ['Vue.js', 'FastAPI'],
     icon: 'M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9',
   },
 ]
@@ -70,7 +70,6 @@ const categories = [
             'rgba(167, 139, 250, 0.15)',
             'rgba(251, 146, 60, 0.15)',
             'rgba(96, 165, 250, 0.15)',
-            'rgba(244, 114, 182, 0.15)',
           ][i]"
           :style="{ transitionDelay: `${i * 100}ms` }"
         >

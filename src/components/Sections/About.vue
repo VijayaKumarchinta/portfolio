@@ -5,17 +5,17 @@ import RevealText from '@/components/UI/RevealText.vue'
 const stats = [
   { value: '8.8', label: 'CGPA' },
   { value: '3', label: 'Certifications' },
-  { value: '2', label: 'Projects' },
-  { value: '18', label: 'Tech Stacks' },
+  { value: '5', label: 'Projects' },
+  { value: '13', label: 'Tech Stacks' },
 ]
 
 const techStack = [
   'Python', 'SQL',
   'Tableau', 'Power BI', 'Excel',
-  'Pandas', 'Numpy', 'scikit-learn',
-  'Flask', 'FastAPI', 'Vue.js','Node.js',
-  'Git', 'Docker', 'Postman',
-  'PostgreSQL', 'SQLite', 'MongoDB',
+  'Pandas', 'NumPy', 'scikit-learn',
+  'FastAPI', 'Vue.js',
+  'Git', 'Docker',
+  'MySQL',
 ]
 </script>
 

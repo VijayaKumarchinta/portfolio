@@ -23,10 +23,26 @@ const projects = [
   {
     title: 'Sales Analytics Platform',
     subtitle: 'Interactive Dashboards with Customer LTV Tracking',
-    description: 'Built a full-stack sales analytics platform featuring interactive dashboards with real-time KPIs, sales trend analysis, profit margin tracking, product performance insights, regional growth comparisons, and customer lifetime value (LTV) calculation with PDF/CSV export. Uses Django REST Framework with Supabase for authentication and PostgreSQL storage.',
-    tags: ['Vue 3', 'Django', 'DRF', 'Supabase', 'PostgreSQL', 'ApexCharts', 'Tailwind CSS'],
+    description: 'Built a full-stack sales analytics platform featuring interactive dashboards with real-time KPIs, sales trend analysis, profit margin tracking, product performance insights, regional growth comparisons, and customer lifetime value (LTV) calculation with PDF/CSV export. Uses Django REST Framework with SimpleJWT authentication and PostgreSQL storage.',
+    tags: ['Vue 3', 'Django', 'DRF', 'SimpleJWT', 'PostgreSQL', 'ApexCharts', 'Tailwind CSS'],
     github: 'https://github.com/VijayaKumarchinta/Sales_analytics',
     color: 'rgba(251, 191, 36, 0.2)',
+  },
+  {
+    title: 'AI-Powered Profile Builder',
+    subtitle: 'Wikipedia Extraction & Gemini AI Agent',
+    description: 'A web application that creates structured profiles of famous people using Wikipedia data extraction with intelligent heuristics. Seamlessly upgrades to a full AI Agent with Google Search Grounding via a free Gemini API key. Generates comprehensive 13-section profiles and exports as PDF or JSON.',
+    tags: ['React 19', 'TypeScript', 'Tailwind CSS', 'Vite', 'jsPDF', 'Gemini AI', 'Lucide'],
+    github: 'https://github.com/VijayaKumarchinta/famous-person-profile-agent',
+    color: 'rgba(52, 211, 153, 0.2)',
+  },
+  {
+    title: 'LiverSegAI',
+    subtitle: 'AI-Powered CT Scan Segmentation Platform',
+    description: 'A full-stack medical imaging platform that leverages Attention U-Net deep learning to automatically segment livers and lesions from CT scans. Features a clinical dashboard with role-based access (Admin, Radiologist, Clinician, Technician), scan upload in NIfTI/DICOM/PNG formats, Dice/IoU metrics, and automated PDF report generation.',
+    tags: ['Django', 'DRF', 'Vue 3', 'PyTorch', 'MONAI', 'PostgreSQL', 'Docker', 'Chart.js'],
+    github: 'https://github.com/VijayaKumarchinta/Liver_Segmentation',
+    color: 'rgba(248, 113, 113, 0.2)',
   },
 ]
 </script>
