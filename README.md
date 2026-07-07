@@ -1,5 +1,13 @@
 # Portfolio
 
+<p align="center">
+  <img src="https://img.shields.io/github/actions/workflow/status/VijayaKumarchinta/portfolio/deploy.yml?branch=main&logo=github&label=Deploy" alt="Deploy Status" />
+  <img src="https://img.shields.io/badge/Vue_3-4FC08D?logo=vue.js&logoColor=white" alt="Vue 3" />
+  <img src="https://img.shields.io/badge/Vite-646CFF?logo=vite&logoColor=white" alt="Vite" />
+  <img src="https://img.shields.io/badge/Tailwind_CSS-06B6D4?logo=tailwindcss&logoColor=white" alt="Tailwind CSS" />
+  <img src="https://img.shields.io/badge/license-MIT-green" alt="MIT License" />
+</p>
+
 A modern, dynamic portfolio website built with **Vue 3** and **Vite**, showcasing skills, projects, and experience in data analytics and software development.
 
 **Live site:** [https://portfolio-4fk.pages.dev](https://portfolio-4fk.pages.dev)
