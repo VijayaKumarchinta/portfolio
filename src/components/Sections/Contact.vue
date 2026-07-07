@@ -174,6 +174,8 @@ async function handleSubmit() {
                 <!-- Name -->
                 <div>
                   <input
+                    id="contact-name"
+                    name="name"
                     v-model="formData.name"
                     type="text"
                     placeholder="Your name *"
@@ -187,6 +189,8 @@ async function handleSubmit() {
                 <!-- Email -->
                 <div>
                   <input
+                    id="contact-email"
+                    name="email"
                     v-model="formData.email"
                     type="email"
                     placeholder="Your email *"
@@ -200,6 +204,8 @@ async function handleSubmit() {
                 <!-- Subject -->
                 <div>
                   <input
+                    id="contact-subject"
+                    name="subject"
                     v-model="formData.subject"
                     type="text"
                     placeholder="Subject (optional)"
@@ -211,6 +217,8 @@ async function handleSubmit() {
                 <!-- Message -->
                 <div>
                   <textarea
+                    id="contact-message"
+                    name="message"
                     v-model="formData.message"
                     rows="4"
                     placeholder="Your message *"

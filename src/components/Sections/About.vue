@@ -61,7 +61,7 @@ const techStack = [
               <p>
                 I enjoy building
                 <span class="text-white/80">full-stack analytics platforms</span>
-                with Flask, FastAPI, and Vue.js, turning data into intuitive, business-ready solutions.
+                with FastAPI and Vue.js, turning data into intuitive, business-ready solutions.
               </p>
             </div>
           </GlassCard>
