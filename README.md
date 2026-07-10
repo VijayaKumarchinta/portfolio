@@ -9,7 +9,7 @@
   [![License](https://img.shields.io/badge/License-MIT-green?style=for-the-badge)](LICENSE)
   
   [![Deploy Status](https://img.shields.io/github/actions/workflow/status/VijayaKumarchinta/portfolio/deploy.yml?branch=main&style=for-the-badge&logo=github&label=Deploy)](https://github.com/VijayaKumarchinta/portfolio/actions)
-  [![Live Demo](https://img.shields.io/badge/LIVE_DEMO-8A2BE2?style=for-the-badge&logo=cloudflare&logoColor=white)](https://portfolio-4fk.pages.dev)
+  [![Live Demo](https://img.shields.io/badge/LIVE_DEMO-8A2BE2?style=for-the-badge&logo=cloudflare&logoColor=white)](https://vijayakumarchinta-portfolio.pages.dev)
 
   <p>A modern, dynamic portfolio website showcasing skills, projects, and experience in data analytics and software development.</p>
 </div>
@@ -163,7 +163,7 @@ Every push to `main` triggers GitHub Actions → Cloudflare Pages:
 ### Manual Deploy
 
 ```bash
-npx wrangler pages deploy dist --project-name=portfolio
+npx wrangler pages deploy dist --project-name=Vijayakumarchinta-portfolio
 ```
 
 ---
