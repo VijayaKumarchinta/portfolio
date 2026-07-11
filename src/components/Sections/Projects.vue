@@ -36,15 +36,7 @@ const projects = [
     github: 'https://github.com/VijayaKumarchinta/famous-person-profile-agent',
     color: 'rgba(52, 211, 153, 0.2)',
   },
-  {
-    title: 'LiverSegAI',
-    subtitle: 'AI-Powered CT Scan Segmentation Platform',
-    description: 'A full-stack medical imaging platform that leverages Attention U-Net deep learning to automatically segment livers and lesions from CT scans. Features a clinical dashboard with role-based access (Admin, Radiologist, Clinician, Technician), scan upload in NIfTI/DICOM/PNG formats, Dice/IoU metrics, and automated PDF report generation.',
-    tags: ['Django', 'DRF', 'Vue 3', 'PyTorch', 'MONAI', 'PostgreSQL', 'Docker', 'Chart.js'],
-    github: 'https://github.com/VijayaKumarchinta/Liver_Segmentation',
-    color: 'rgba(248, 113, 113, 0.2)',
-  },
-]
+  ]
 </script>
 
 <template>
